@@ -21,6 +21,8 @@ npm start
 
 The app will then be available on `http://localhost:3000/`.
 
+## Instructions
+
 This exercise consists of two parts:
 
 * Setting up an API to proxy requests to the Receptiviti API.
