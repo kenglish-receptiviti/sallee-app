@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.chart {
+  margin-bottom: 100px;
+}
+
+.sentiment {
+  position: relative;
+  height: 30px;
+}
+.sentiment-bg {
+  background: #eee;
+  border-radius: 4px;
+  height: 30px;
+  width: 100%;
+  position: absolute;
+}
+.sentiment-bar {
+  background: rgb(219,31,72);
+  background: linear-gradient(90deg, rgba(219,31,72,1) 0%, rgba(0,67,105,1) 100%);
+  border-radius: 4px;
+  height: 30px;
+  position: absolute;
+}
+.sentiment-neg {
+  position: absolute;
+  left: 0;
+  top: 35px;
+}
+.sentiment-pos {
+  position: absolute;
+  right: 0;
+  top: 35px;
+}
