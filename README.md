@@ -49,10 +49,11 @@ Hint: Your API will need to have CORS enabled to accept requests from the JS fro
 
 ### TypeScript TODO Sections
 
-There are five `TODO` sections (one of which is trivial) spread across the following two files:
+There are six `TODO` sections (one of which is trivial) spread across the following three files:
 
 * `src/App.tsx`
-* `src/SentimentChart.tsx`
+* `src/sentiment.ts`
+* `src/sentiment.test.tsx`
 
 They will need to be completed for the app to run properly. Once complete it should look something like the following (although the form does need to look exactly the same):
 
