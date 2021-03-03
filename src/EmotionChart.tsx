@@ -2,10 +2,10 @@ import React from 'react';
 import {
   ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip,
 } from 'recharts';
-import { SALLEE } from './sallee';
+import { emotions } from './sallee';
 
 interface Props {
-  sallee: SALLEE;
+  sallee: Map<string, number>;
 }
 
 interface DataPoint {
@@ -14,10 +14,14 @@ interface DataPoint {
 }
 
 const EmotionChart: React.FC<Props> = (props: Props)  => {
-  const data: DataPoint[] = Object.keys(props.sallee.emotions).map((emotion) => {
+  if (!props.sallee) {
+    return <></>;
+  }
+
+  const data: DataPoint[] = Object.keys(emotions).map((emotion) => {
     return {
       emotion: emotion,
-      score: parseFloat(props.sallee.emotions[emotion].toFixed(3))
+      score: parseFloat((props.sallee.get(emotion) || 0).toFixed(3))
     };
   });
 
