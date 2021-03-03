@@ -1,22 +1,28 @@
 import React from 'react';
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import { SALLEE } from './sallee';
+import { summary } from './sallee';
 import { getSentimentWidth } from './sentiment';
 
 interface Props {
-  sallee: SALLEE;
+  sallee: Map<string, number>;
 }
 
 const SentimentChart: React.FC<Props> = (props: Props) => {
-  const fullWidth = 220;
+  if (!props.sallee) {
+    return <></>;
+  }
 
-  const width = getSentimentWidth(props.sallee.sentiment, fullWidth);
+  const sentiment = props.sallee.get(summary.sentiment) || 0;
+
+  const fullWidth = 400;
+
+  const width = getSentimentWidth(sentiment, fullWidth);
 
   const popover = (
     <Popover id="sentiment-popover">
       <Popover.Content>
-        Sentiment: {parseFloat(props.sallee.sentiment.toFixed(3))}
+        Sentiment: {parseFloat(sentiment.toFixed(3))}
       </Popover.Content>
     </Popover>
   );

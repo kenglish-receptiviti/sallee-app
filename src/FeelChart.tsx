@@ -2,10 +2,10 @@ import React from 'react';
 import {
   PieChart, Pie, Cell, Tooltip, Legend,
 } from 'recharts';
-import { SALLEE } from './sallee';
+import { summary } from './sallee';
 
 interface Props {
-  sallee: SALLEE;
+  sallee: Map<string, number>;
 }
 
 interface DataPoint {
@@ -15,20 +15,24 @@ interface DataPoint {
 }
 
 const FeelChart: React.FC<Props> = (props: Props) => {
+  if (!props.sallee) {
+    return <></>;
+  }
+
   const data: DataPoint[] = [
     {
       name: 'Goodfeel',
-      score: parseFloat(props.sallee.goodfeel.toFixed(3)),
+      score: parseFloat((props.sallee.get(summary.goodfeel) || 0).toFixed(3)),
       color: '#004369'
     },
     {
       name: 'Badfeel',
-      score: parseFloat(props.sallee.badfeel.toFixed(3)),
+      score: parseFloat((props.sallee.get(summary.badfeel) || 0).toFixed(3)),
       color: '#db1f48'
     },
     {
       name: 'Ambifeel',
-      score: parseFloat(props.sallee.ambifeel.toFixed(3)),
+      score: parseFloat((props.sallee.get(summary.ambifeel) || 0).toFixed(3)),
       color: '#e5ddc8'
     }
   ];
